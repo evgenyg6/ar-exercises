@@ -9,4 +9,11 @@ require_relative './exercise_6'
 puts "Exercise 7"
 puts "----------"
 
-# Your code goes here ...
+puts "Enter a store name: "
+store_name = gets.chomp
+store = Store.create(name: store_name)
+store.save
+
+store.errors.to_a.each do |error|
+  puts "ERROR: #{error}"
+end
